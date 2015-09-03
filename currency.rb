@@ -10,7 +10,15 @@ class Currency
     @amount == currency_1.amount && @code == currency_1.code
   end
 
-  def add (currency_1)
-    @amount += currency_1.amount.to_i && @code += currency_1.code.to_i
+  def - (currency_1)
+    @code == currency_1.code
+    @amount - currency_1.amount
+    #else bring up Error message
+  end
+
+  def + (currency_1)
+    @code == currency_1.code
+    @amount + currency_1.amount
+    #else bring up Error message
   end
 end
