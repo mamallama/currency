@@ -31,4 +31,12 @@ class Currency
       raise DifferentCurrencyCodeError
     end
   end
+
+  def + (currency_1)
+    if @code == currency_1.code
+      @amount * currency_1.amount
+    else
+      raise DifferentCurrencyCodeError
+    end
+  end
 end
