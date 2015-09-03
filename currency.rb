@@ -1,3 +1,5 @@
+require './differentcurrencyerror'
+
 class Currency
   attr_accessor :amount, :code
 
@@ -15,14 +17,18 @@ class Currency
   end
 
   def - (currency_1)
-    @code == currency_1.code
-    @amount - currency_1.amount
-    #else bring up Error message
+    if @code == currency_1.code
+      @amount - currency_1.amount
+    else
+      raise DifferentCurrencyCodeError
+    end
   end
 
   def + (currency_1)
-    @code == currency_1.code
-    @amount + currency_1.amount
-    #else bring up Error message
+    if @code == currency_1.code
+      @amount + currency_1.amount
+    else
+      raise DifferentCurrencyCodeError
+    end
   end
 end
