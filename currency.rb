@@ -10,6 +10,10 @@ class Currency
     @amount == currency_1.amount && @code == currency_1.code
   end
 
+  def != (currency_1)
+    @amount != currency_1.amount && @code == currency_1.code || @amount == currency_1.amount && @code != currency_1.code
+  end
+
   def - (currency_1)
     @code == currency_1.code
     @amount - currency_1.amount
