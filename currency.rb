@@ -32,11 +32,9 @@ class Currency
     end
   end
 
-  def + (currency_1)
-    if @code == currency_1.code
-      @amount * currency_1.amount
-    else
-      raise DifferentCurrencyCodeError
-    end
+  def * (currency_1)
+    @code == currency_1.code
+    @amount.to_i * currency_1.amount.to_i ||  @amount.to_f * currency_1.amount.to_f 
+
   end
 end
