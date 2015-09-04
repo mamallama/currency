@@ -1,19 +1,27 @@
 require './differentcurrencyerror'
 
 class Currency
-  attr_accessor :amount, :code
+  attr_accessor :amount, :code, :symbol, :currency_symbol
 
-  def initialize (amount, code)
-    @amount = amount
-    @code = code
+  def initialize (amount, code = "")
+    code_hash = { "$" => "USD",
+                  "€" => "EUR",
+                  "£" => "GBP",
+                  "¥" => "JPY",
+                  "₹" => "INR",
+                  "Bs" => "VEF",
+                  "₡" => "CRC"}
+    if code != ""
+      @amount = amount
+      @code = code
+    else code = ""
+      @code = code_hash[amount.slice(0)]
+      @amount = amount.slice(1..-1).to_f
+
+    end
+
   end
 
-  #Need to include flag for symbols
-  #def split? include? OR... better way?
-
-  end
-
-  end
   def == (currency_1)
     @amount == currency_1.amount && @code == currency_1.code
   end
@@ -24,7 +32,7 @@ class Currency
 
   def - (currency_1)
     if @code == currency_1.code
-      @amount - currency_1.amount
+      Currency.new(@amount - currency_1.amount, @code)
     else
       raise DifferentCurrencyCodeError
     end
@@ -32,7 +40,7 @@ class Currency
 
   def + (currency_1)
     if @code == currency_1.code
-      @amount + currency_1.amount
+      Currency.new(@amount + currency_1.amount, @code)
     else
       raise DifferentCurrencyCodeError
     end
@@ -42,10 +50,4 @@ class Currency
     @code == currency_1.code
     @amount.to_i * currency_1.amount.to_i ||  @amount.to_f * currency_1.amount.to_f
   end
-
-  def isolate_symbols (currency_1)
-    @isolate_symbols = currency_1.slice(0)
-  end
-
-def
 end
