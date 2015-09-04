@@ -8,6 +8,12 @@ class Currency
     @code = code
   end
 
+  #Need to include flag for symbols
+  #def split? include? OR... better way?
+
+  end
+
+  end
   def == (currency_1)
     @amount == currency_1.amount && @code == currency_1.code
   end
@@ -34,7 +40,12 @@ class Currency
 
   def * (currency_1)
     @code == currency_1.code
-    @amount.to_i * currency_1.amount.to_i ||  @amount.to_f * currency_1.amount.to_f 
-
+    @amount.to_i * currency_1.amount.to_i ||  @amount.to_f * currency_1.amount.to_f
   end
+
+  def isolate_symbols (currency_1)
+    @isolate_symbols = currency_1.slice(0)
+  end
+
+def
 end
