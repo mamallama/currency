@@ -1,16 +1,17 @@
 require './differentcurrencyerror'
+require './currency_converter'
 
 class Currency
   attr_accessor :amount, :code, :symbol, :currency_symbol
 
   def initialize (amount, code = "")
-    code_hash = { "$" => "USD",
-                  "€" => "EUR",
-                  "£" => "GBP",
-                  "¥" => "JPY",
-                  "₹" => "INR",
-                  "Bs" => "VEF",
-                  "₡" => "CRC"}
+    code_hash = { "$" => :USD,
+                  "€" => :EUR,
+                  "£" => :GBP,
+                  "¥" => :JPY,
+                  "₹" => :INR,
+                  "Bs" => :VEF,
+                  "₡" => :CRC}
     if code != ""
       @amount = amount
       @code = code
