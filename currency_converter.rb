@@ -8,6 +8,7 @@ class CurrencyConverter
 
   def converter (given_currency, desired_currency)
       money_in = given_currency.amount
-      converter1 = @currency_hash[desired_currency]/@currency_hash[given_currency] * money_in.to_f
+      money_out = money_in * (@currency_hash[desired_currency]/@currency_hash[given_currency.code])
+      return Currency.new(money_out, desired_currency)
   end
 end

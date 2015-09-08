@@ -19,5 +19,5 @@ desired_currency = :USD
 given_currency = Currency.new("25", :GBP)
 
 new_money = CurrencyConverter.new(currency_hash)
-converted_money = new_money.converter(Currency.new(1, :USD), :USD) == Currency.new(1, :USD)
-return converted_money
+check = new_money.converter(Currency.new(1, :USD), :USD) == Currency.new(1, :USD)
+puts check
