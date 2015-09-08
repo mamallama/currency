@@ -2,7 +2,7 @@
 
 ##Intro
 This is a currency converter. Have cash in hand, but want to exchange it for a different currency? 
-Input your amount and currency code (or symbol, ex: "$10") and the currency you want to change that to. The currency converter will use exchange rates to give you a accurate results.
+Input your amount and currency code (or symbol, ex: "$10") and the currency you want to change that to. The currency converter will use exchange rates to give you accurate results.
 
 ##How it's done:
 We have two classes, 
