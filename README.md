@@ -51,3 +51,4 @@ class Currency
 Between these, we are checking that different currencies cannot be multiplied, added, or subtracted, and we are calculating your converted currency amount. 
 Using a hash for the currency symbols, and a separate hash for the exchage rates, we can use that information to give you 
 an accurate converted amount in your desired currency.
+If an unknown currency code is used, an `Error` will be raised.
